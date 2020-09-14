@@ -52,6 +52,7 @@ target("luasocket")
         os.cp(package:targetdir() .. prefix .. "socket", package:installdir() .. "/socket")
         os.cp(package:targetdir() .. prefix .. "mime", package:installdir() .. "/mime")
         os.cp("src/*.lua", package:installdir())
+        os.cp("src/luasocket.h", package:installdir() .. "/include")
     end)
 
 target("mime")
