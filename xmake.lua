@@ -1,8 +1,7 @@
 set_xmakever("2.3.4")
 add_rules("mode.debug", "mode.release")
 
-add_requires("luajit", { config = { kind = "shared" 
-}})
+add_requires("luajit", { config = { kind = "shared" }})
 
 target("common")
     -- no 'set_kind("xxx")' function call means this target is an object/interface
@@ -10,7 +9,6 @@ target("common")
         add_defines("WIN32", "_WINDOWS", "_USRDLL", "NDEBUG", { public = true })
         add_defines("_CRT_SECURE_NO_WARNINGS", "LUASOCKET_API=__declspec(dllexport)", { public = true })
     else
-        -- linux defs
         add_defines("-DLUASOCKET_")
     end
     add_includedirs("src", { public = true })
@@ -53,6 +51,7 @@ target("luasocket")
         os.cp(package:targetdir() .. prefix .. "mime", package:installdir() .. "/mime")
         os.cp("src/*.lua", package:installdir())
         os.cp("src/luasocket.h", package:installdir() .. "/include")
+        os.cp("src/compat.h", package:installdir() .. "/include")
     end)
 
 target("mime")
