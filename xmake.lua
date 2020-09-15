@@ -1,7 +1,7 @@
 set_xmakever("2.3.4")
 add_rules("mode.debug", "mode.release")
 
-add_requires("luajit", { config = { kind = "shared" }})
+add_requires("luajit", { configs = { shared = true }})
 
 target("common")
     -- no 'set_kind("xxx")' function call means this target is an object/interface
