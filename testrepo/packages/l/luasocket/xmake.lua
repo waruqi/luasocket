@@ -6,6 +6,7 @@ package("luasocket")
     set_urls("https://github.com/paul-reilly/luasocket.git")
     add_versions("3.0.3-rc1", "cc1175f117aa57693228782a96756d8a235aae45")
 
+    add_deps("luajit", {configs = {shared = true}})
     add_includedirs("include")
 
     on_install("windows", "linux", "macosx", "bsd", "android", "iphoneos", function (package)

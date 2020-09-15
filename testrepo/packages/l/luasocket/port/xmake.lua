@@ -1,7 +1,5 @@
-set_xmakever("2.3.4")
 add_rules("mode.debug", "mode.release")
-
-add_requires("luajit")--, { configs = { shared = true }}) -- shared currently fails linking luajit executable (can't open luajit.lib)
+add_requires("luajit", {configs = {shared = true}})
 
 target("common")
     -- no 'set_kind("xxx")' function call means this target is an object/interface
